@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { GetUserDetailsService } from './get-user-details.service';
 
 
@@ -7,12 +7,17 @@ import { GetUserDetailsService } from './get-user-details.service';
   templateUrl: './app.component.html',
   styleUrls: [ './app.component.css' ]
 })
-export class AppComponent  {
+export class AppComponent implements OnInit {
   name = 'Angular';
+  userData: any;
+  commentData: any;
 
-  constructor(private getUserDetails: GetUserDetailsService) {
+  constructor(private getUserDetails: GetUserDetailsService) {  }
 
-    this.getUserDetails.getDetails().subscribe(data => console.log(data));
+  ngOnInit() {
+      this.getUserDetails.getUserDetails().subscribe(data => this.userData = data);
+
+      this.getUserDetails.getCommentDetails().subscribe(data => this.commentData = data);
   }
 
 

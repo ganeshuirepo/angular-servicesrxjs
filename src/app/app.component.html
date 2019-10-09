@@ -1,1 +1,16 @@
-<hello name="{{ name }}"></hello>
+<table>
+  <tr>
+  <thead>
+    <th>ID</th>
+    <th>Name</th>
+  </thead>
+  </tr>
+  <tbody>
+    <tr *ngFor="let user of userData | slice:0:3">
+      <td>{{user.id}}</td>
+    </tr>
+    <tr *ngFor="let comment of commentData | slice:0:3">
+      <td>{{comment.name}}</td>
+    </tr>
+  </tbody>
+</table>
