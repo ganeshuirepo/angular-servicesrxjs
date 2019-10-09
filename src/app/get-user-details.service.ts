@@ -8,6 +8,7 @@ import {User} from './User';
 export class GetUserDetailsService {
   usersURL: string = "https://jsonplaceholder.typicode.com/users";
   commentsURL: string = "https://jsonplaceholder.typicode.com/comments";
+  
   constructor(private http: HttpClient) { }
 
 getUserDetails(): Observable<User> {
